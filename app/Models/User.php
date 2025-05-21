@@ -149,7 +149,10 @@ class User extends Authenticatable {
     function jitsi_credential(): HasOne {
         return $this->hasOne(JitsiSetting::class, 'instructor_id', 'id');
     }
-
+public function educationalCenters()
+    {
+        return $this->hasMany(EducationalCenter::class, 'user_id');
+    }
     /**
      * Boot the model.
      */

@@ -17,11 +17,11 @@
         <!-- categories-area-end -->
     @endif
 
-    @if ($sectionSetting?->brands_section)
+    {{-- @if ($sectionSetting?->brands_section)
         <!-- brand-area -->
         @include('frontend.home.main.sections.brand-area')
         <!-- brand-area-end -->
-    @endif
+    @endif --}}
 
     @if ($sectionSetting?->about_section)
         <!-- about-area -->

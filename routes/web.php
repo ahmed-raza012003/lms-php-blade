@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EducationalCenterController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\Frontend\AboutPageController;
 use App\Http\Controllers\Frontend\BecomeInstructorController;
 use App\Http\Controllers\Frontend\BlogController;
@@ -78,9 +80,12 @@ Route::group(['middleware' => 'maintenance.mode'], function () {
     Route::get('page/{slug}', [HomePageController::class, 'customPage'])->name('custom-page');
 
     /** other routes */
-    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:admin'], 'as' => 'admin.'], function () {
-        \UniSharp\LaravelFilemanager\Lfm::routes();
-    });
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:admin'], 'as' => 'admin.'], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+    
+    // Educational Center Controller
+    Route::resource('educenter', EducationalCenterController::class)->names('educenter');
+});
     Route::group(['prefix' => 'frontend-filemanager', 'middleware' => ['web']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
@@ -282,6 +287,11 @@ Route::get('/maintenance-mode', function () {
 
     return view('global.maintenance');
 })->name('maintenance.mode');
+
+
+
+
+
 
 require __DIR__ . '/auth.php';
 

@@ -11,7 +11,7 @@
           </div>
           <div class="col-lg-8">
               <div class="newsletter__content">
-                  <h2 class="title"><b>{{ __('Want to stay informed about') }}</b> <br> <b>{{ __('new courses and study') }}?</b></h2>
+                  <h2 class="title"><b>{{ __('Want to stay informed about') }}</b> <br> <b>{{ __('new workspaces and learning updates?') }}?</b></h2>
                   <div class="newsletter__form">
                       <form action="{{route('newsletter-request')}}" method="post" class="newsletter">
                         @csrf

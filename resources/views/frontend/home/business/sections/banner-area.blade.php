@@ -14,7 +14,7 @@
                                         <form action="{{ route('courses') }}" class="slider__search-form">
                                             <input type="text" name="search"
                                                 placeholder="{{ __('Search here') }} . . .">
-                                            <button type="submit">{{ __('Find Courses') }}</button>
+                                            <button type="submit">{{ __('Explore Spaces') }}</button>
                                         </form>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                                         <form action="{{ route('courses') }}" class="slider__search-form">
                                             <input type="text" name="search"
                                                 placeholder="{{ __('Search here') }} . . .">
-                                            <button type="submit">{{ __('Find Courses') }}</button>
+                                            <button type="submit">{{ __('Explore Spaces') }}</button>
                                         </form>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                                         <form action="{{ route('courses') }}" class="slider__search-form">
                                             <input type="text" name="search"
                                                 placeholder="{{ __('Search here') }} . . .">
-                                            <button type="submit">{{ __('Find Courses') }}</button>
+                                            <button type="submit">{{ __('Explore Spaces') }}</button>
                                         </form>
                                     </div>
                                 </div>

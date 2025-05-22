@@ -15,7 +15,7 @@
         @include('frontend.home.business.sections.features-area')
         <!-- features-area-end -->
     @endif
-    @if ($sectionSetting?->featured_course_section)
+    {{-- @if ($sectionSetting?->featured_course_section)
         <!-- course-area -->
         @include('frontend.home.business.sections.course-area')
         <!-- course-area-end -->
@@ -25,7 +25,7 @@
         <!-- instructor-area-two -->
         @include('frontend.home.business.sections.join-us')
         <!-- instructor-area-two-end -->
-    @endif
+    @endif --}}
 
     @if ($sectionSetting?->about_section)
         <!-- about-area -->
@@ -50,11 +50,11 @@
         <!-- testimonial-area-end -->
     @endif
 
-    @if ($sectionSetting?->brands_section)
+    {{-- @if ($sectionSetting?->brands_section)
         <!-- brand-area -->
         @include('frontend.home.business.sections.brand-area')
         <!-- brand-area-end -->
-    @endif
+    @endif --}}
     @if ($sectionSetting?->news_letter_section)
         <!-- newsletter-area -->
         @include('frontend.home.business.sections.newsletter-area')

@@ -19,7 +19,7 @@
                             </div>
                             <span class="name">{{ $category?->name }}</span>
                             <span class="courses">{{ $category->subCategories->sum('courses_count') }}
-                                {{ __('Courses') }}</span>
+                                {{ __('Features') }}</span>
                         </a>
                     </div>
                 </div>

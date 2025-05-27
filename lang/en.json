@@ -1915,7 +1915,137 @@
     "Update Educational Centers":"Educational Centers",
 
     "Update Educational Center":"Update Educational Center",
-    "Select Owner":"Select Owner"
+    "Select Owner":"Select Owner",
+
+
+    "Create Class":"Create Class",
+    "Classes":"Classes",
+
+    "New Class":"New Class",
+    "Workspace":"Workspace",
+    "Select Workspace":"Select Workspace",
+    "Teacher":"Teacher",
+    "Select Teacher":"Select Teacher",
+    "Room":"Room",
+    "Select Room":"Select Room",
+
+    "School Level":"School Level",
+    "Select Level":"Select Level",
+
+    "End Time":"End Time",
+    "Recurring":"Recurring",
+
+    "Recurrence Pattern":"Recurrence Pattern",
+    "Select Pattern":"Select Pattern",
+     "Edit Class":"Edit Class",
+
+      "All Classes":"All Classes",
+    "Add New Class":"Add New Class",
+
+    "Are you sure you want to delete this class?":"Are you sure you want to delete this class?",
+
+     "Class Details":"Class Details",
+
+    "Created At":"Created At",
+    "Back to List":"Back to List",
+    "N/A":"N/A",
+
+
+    "Create Room Schedule":"Create Room Schedule",
+    "Room Schedules":"Room Schedules",
+    "New Schedule":"New Schedule",
+    "Day of Week":"Day of Week",
+    "Select Day":"Select Day",
+    "Available":"Available",
+    "Unavailable":"Unavailable",
+
+    "Edit Room Schedule":"Edit Room Schedule",
+    "Edit Schedule":"Edit Schedule",
+
+     "Room Schedule List":"Room Schedule List",
+    "All Schedules":"All Schedules",
+    "Sr No.":"Sr No.",
+    "Day":"Day",
+    "No Schedules Found":"No Schedules Found",
+    "Are you sure you want to delete this schedule?":"Are you sure you want to delete this schedule?",
+    "Create New":"Create New",
+     "Room Schedule Details":"Room Schedule Details",
+     "Create Room":"Create Room",
+    "Rooms":"Rooms",
+    "New Room":"New Room",
+    "Size":"Size",
+    "Price Per Hour":"Price Per Hour",
+
+    "Profile Photo":"Profile Photo",
+    "Profile Video":"Profile Video",
+    "Edit Room":"Edit Room",
+    "Room List":"Room List",
+    "All Rooms":"All Rooms",
+    "Price/Hour":"Price/Hour",
+    "No Rooms Found":"No Rooms Found",
+    "Are you sure you want to delete this room?":"Are you sure you want to delete this room?",
+    "Room Details":"Room Details",
+     "Create Teacher":"Create Teacher",
+    "Teachers":"Teachers",
+    "Add New Teacher":"Add New Teacher",
+
+    "Select User":"Select User",
+    "First Name":"First Name",
+    "Last Name":"Last Name",
+
+    "Subjects":"Subjects",
+    "School Levels":"School Levels",
+    "Hourly Rate":"Hourly Rate",
+    "Availability":"Availability",
+
+    "Payment Info":"Payment Info",
+    "Highest Qualification":"Highest Qualification",
+    "Years of Experience":"Years of Experience",
+    "Degrees":"Degrees",
+    "Degree Name":"Degree Name",
+    "Upload File (PDF/Image)":"Upload File (PDF/Image)",
+    "Remove":"Remove",
+
+    "Certification Name":"Certification Name",
+    "Add Degree":"Add Degree",
+    "Add Certification":"Add Certification",
+    "Save Teacher":"Save Teacher",
+    "Edit Teacher":"Edit Teacher",
+    "Update Teacher":"Update Teacher",
+    "View PDF":"View PDF",
+     "All Teachers":"All Teachers",
+    "Add Teacher":"Add Teacher",
+
+    "No Teachers Found":"No Teachers Found",
+    "Are you sure you want to delete this teacher?":"Are you sure you want to delete this teacher?",
+     "Teacher Details":"Teacher Details",
+    "Teacher Information":"Teacher Information",
+    "No Degrees":"No Degrees",
+    "No Certifications":"No Certifications",
+     "Create Workspace":"Create Workspace",
+    "Workspaces":"Workspaces",
+    "Add New Workspace":"Add New Workspace",
+    "Workspace Type":"Workspace Type",
+    "Select Type":"Select Type",
+    "Educational Center":"Educational Center",
+    "Co-work Space":"Co-work Space",
+
+    "Latitude":"Latitude",
+    "Longitude":"Longitude",
+     "Edit Workspace":"Edit Workspace",
+    "Update Workspace":"Update Workspace",
+
+    "Workspace List": "Workspace List",
+
+    "All Workspaces": "All Workspaces",
+
+    "Type": "Type",
+   
+    "No Workspaces Found": "No Workspaces Found"
+
+
+
+
 
 
 }

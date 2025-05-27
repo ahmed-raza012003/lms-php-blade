@@ -20,3 +20,5 @@
     <link rel="stylesheet" href="{{ asset('backend/css/rtl.css') }}?v={{$setting?->version}}">
     <link rel="stylesheet" href="{{ asset('backend/css/dev_rtl.css') }}?v={{$setting?->version}}">
 @endif
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">

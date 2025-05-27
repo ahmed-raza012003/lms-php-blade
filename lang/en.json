@@ -1894,5 +1894,28 @@
     "Professional Tutor":"Professional Tutor",
     "Basic Payment":"Basic Payment",
     "Custom CSS":"Custom CSS",
-    "Custom JS":"Custom JS"
+    "Custom JS":"Custom JS",
+
+
+ "Create Educational Center":"Create Educational Center",
+    "Add New Educational Center":"Add New Educational Center",
+    "ID":"ID",
+
+    "Operating Hours":"Operating Hours",
+    "Verification Status":"Verification Status",
+    "Owner":"Owner",
+
+    "No Educational Centers Found":"No Educational Centers Found",
+    "approved":"Approved",
+    "rejected":"Rejected",
+    "pending":"Pending",
+
+
+    "Edit Educational Center":"Edit Educational Center",
+    "Update Educational Centers":"Educational Centers",
+
+    "Update Educational Center":"Update Educational Center",
+    "Select Owner":"Select Owner"
+
+
 }

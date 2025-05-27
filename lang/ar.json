@@ -1894,5 +1894,26 @@
     "Professional Tutor": "معلم محترف",
     "Basic Payment": "الدفع الأساسي",
     "Custom CSS": "CSS مخصص",
-    "Custom JS": "JS مخصص"
+    "Custom JS": "JS مخصص",
+
+
+
+     "Create Educational Center":"إنشاء مركز تعليمي",
+
+    "Educational Center List":"قائمة المراكز التعليمية",
+    "Add New Educational Center":"إضافة مركز تعليمي جديد",
+    "All Educational Centers":"جميع المراكز التعليمية",
+    "ID":"المعرف",
+    "Operating Hours":"ساعات العمل",
+    "Verification Status":"حالة التحقق",
+    "Owner":"المالك",
+    "No Educational Centers Found":"لم يتم العثور على مراكز تعليمية",
+    "approved":"تمت الموافقة",
+    "rejected":"مرفوض",
+    "pending":"قيد الانتظار",
+
+        "Edit Educational Center":"تعديل مركز تعليمي",
+    "Educational Centers":"المراكز التعليمية",
+    "Update Educational Center":"تحديث مركز تعليمي",
+    "Select Owner":"اختر المالك"
 }

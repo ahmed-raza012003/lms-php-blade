@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\ClassesController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationalCenterController;
+use App\Http\Controllers\Admin\RoomScheduleController;
+use App\Http\Controllers\Admin\WorkspaceController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Frontend\AboutPageController;
 use App\Http\Controllers\Frontend\BecomeInstructorController;
@@ -82,9 +85,25 @@ Route::group(['middleware' => 'maintenance.mode'], function () {
     /** other routes */
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:admin'], 'as' => 'admin.'], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
-    
+
     // Educational Center Controller
     Route::resource('educenter', EducationalCenterController::class)->names('educenter');
+    // Workspace Controller
+    Route::resource('workspace', WorkspaceController::class)->names('workspace');
+    Route::post('workspace/update-status', [WorkspaceController::class, 'updateStatus'])->name('workspace.update-status');
+    // Room Controller
+    Route::resource('rooms', \App\Http\Controllers\Admin\RoomController::class)->names('rooms');
+    Route::post('rooms/update-status', [\App\Http\Controllers\Admin\RoomController::class, 'updateStatus'])->name('rooms.update-status');
+    // Room_Schedule Controller
+    Route::resource('room_schedules', RoomScheduleController::class)->names('room_schedules');
+    // Classes Controller
+    Route::resource('classes', ClassesController::class)->names('classes');
+   
+    // Teachers Controller
+       Route::resource('teachers', \App\Http\Controllers\Admin\TeachersController::class)->names('teachers');
+    Route::post('teachers/{teacher_id}/degrees', [\App\Http\Controllers\Admin\TeachersController::class, 'storeDegree'])->name('teachers.degrees.store');
+    Route::post('teachers/{teacher_id}/certifications', [\App\Http\Controllers\Admin\TeachersController::class, 'storeCertification'])->name('teachers.certifications.store');
+
 });
     Route::group(['prefix' => 'frontend-filemanager', 'middleware' => ['web']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();

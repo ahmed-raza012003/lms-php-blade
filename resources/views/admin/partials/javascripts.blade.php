@@ -22,6 +22,8 @@
 
 <!-- File Manager js-->
 <script src="{{ url('/vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 
 <script>
     $('.file-manager').filemanager('file', {prefix: '{{ url("/laravel-filemanager") }}'});

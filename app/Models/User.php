@@ -18,7 +18,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Modules\InstructorRequest\app\Models\InstructorRequest;
 
-class User extends Authenticatable {
+class User extends Authenticatable
+{
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -55,24 +56,35 @@ class User extends Authenticatable {
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password'          => 'hashed',
+        'password' => 'hashed',
     ];
 
-    public function messagesSent() {
+    public function messagesSent()
+    {
         return $this->hasMany(Message::class, 'sender_id');
     }
 
-    public function messagesReceived() {
+    public function messagesReceived()
+    {
         return $this->hasMany(Message::class, 'receiver_id');
     }
 
-    public function contactUsers() {
+    public function contactUsers()
+    {
         return User::whereIn('id', $this->messagesSent()->pluck('receiver_id'))
             ->orWhereIn('id', $this->messagesReceived()->pluck('sender_id'))
             ->get();
     }
-
-    public function contactUsersWithUnseenMessages() {
+    public function teacher()
+    {
+        return $this->hasOne(Teacher::class, 'user_id');
+    }
+       public function workspaces()
+    {
+        return $this->belongsToMany(Workspace::class, 'workspace_user', 'user_id', 'workspace_id');
+    }
+    public function contactUsersWithUnseenMessages()
+    {
         $contactUsers = User::whereIn('id', $this->messagesSent()->pluck('receiver_id'))
             ->orWhereIn('id', $this->messagesReceived()->pluck('sender_id'))
             ->select('id', 'name', 'email', 'image')
@@ -93,11 +105,11 @@ class User extends Authenticatable {
             })->latest('created_at')->first();
 
             $contactUsersWithUnseenMessages[] = (object) [
-                'id'           => $contactUser->id,
-                'name'         => $contactUser->name,
-                'email'        => $contactUser->email,
-                'image'        => $contactUser->image,
-                'new_message'  => $unseenMessagesCount,
+                'id' => $contactUser->id,
+                'name' => $contactUser->name,
+                'email' => $contactUser->email,
+                'image' => $contactUser->image,
+                'new_message' => $unseenMessagesCount,
                 'last_message' => $lastMessage->created_at,
             ];
         }
@@ -109,54 +121,66 @@ class User extends Authenticatable {
         return $contactUsersWithUnseenMessages;
     }
 
-    public function scopeActive($query) {
+    public function scopeActive($query)
+    {
         return $query->where('status', UserStatus::ACTIVE);
     }
 
-    public function scopeInactive($query) {
+    public function scopeInactive($query)
+    {
         return $query->where('status', UserStatus::DEACTIVE);
     }
 
-    public function scopeBanned($query) {
+    public function scopeBanned($query)
+    {
         return $query->where('is_banned', UserStatus::BANNED);
     }
 
-    public function scopeUnbanned($query) {
+    public function scopeUnbanned($query)
+    {
         return $query->where('is_banned', UserStatus::UNBANNED);
     }
 
-    public function socialite() {
+    public function socialite()
+    {
         return $this->hasMany(SocialiteCredential::class, 'user_id');
     }
 
-    function instructorInfo(): HasOne {
+    function instructorInfo(): HasOne
+    {
         return $this->hasOne(InstructorRequest::class, 'user_id', 'id');
     }
 
-    public function courses() {
+    public function courses()
+    {
         return $this->hasMany(Course::class, 'instructor_id');
     }
 
-    function country(): BelongsTo {
+    function country(): BelongsTo
+    {
         return $this->belongsTo(Country::class, 'country_id');
     }
-    function orders(): HasMany {
+    function orders(): HasMany
+    {
         return $this->hasMany(Order::class, 'buyer_id', 'id');
     }
-    function zoom_credential(): HasOne {
+    function zoom_credential(): HasOne
+    {
         return $this->hasOne(ZoomCredential::class, 'instructor_id', 'id');
     }
-    function jitsi_credential(): HasOne {
+    function jitsi_credential(): HasOne
+    {
         return $this->hasOne(JitsiSetting::class, 'instructor_id', 'id');
     }
-public function educationalCenters()
+    public function educationalCenters()
     {
         return $this->hasMany(EducationalCenter::class, 'user_id');
     }
     /**
      * Boot the model.
      */
-    protected static function boot() {
+    protected static function boot()
+    {
         parent::boot();
 
         static::deleting(function ($user) {

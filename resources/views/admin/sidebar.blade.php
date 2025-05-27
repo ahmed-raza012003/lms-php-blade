@@ -138,6 +138,72 @@
                 </a>
             </li>
 
+            {{-- Workspace sidebar -- --}}
+            <li class="menu-header">{{ __('Workspaces') }}</li>
+            <li class="{{ isRoute('admin.workspace.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.workspace.create') }}"><i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Workspace') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.workspace.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.workspace.index') }}"><i class="fas fa-list"></i>
+                    <span>{{ __('List Workspaces') }}</span>
+                </a>
+            </li>
+
+            {{-- Rooms sidebar --}}
+            <li class="menu-header">{{ __('Rooms') }}</li>
+            <li class="{{ isRoute('admin.rooms.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.rooms.create') }}"><i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Room') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.rooms.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.rooms.index') }}"><i class="fas fa-list"></i>
+                    <span>{{ __('List Rooms') }}</span>
+                </a>
+            </li>
+
+            {{-- Room Schedules sidebar --}}
+            <li class="menu-header">{{ __('Room Schedules') }}</li>
+            <li class="{{ isRoute('admin.room_schedules.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.room_schedules.create') }}"><i
+                        class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Schedule') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.room_schedules.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.room_schedules.index') }}"><i class="fas fa-list"></i>
+                    <span>{{ __('List Schedules') }}</span>
+                </a>
+            </li>
+
+            {{-- Classes sidebar --}}
+            <li class="menu-header">{{ __('Classes') }}</li>
+            <li class="{{ isRoute('admin.classes.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.classes.create') }}"><i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Class') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.classes.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.classes.index') }}"><i class="fas fa-list"></i>
+                    <span>{{ __('List Classes') }}</span>
+                </a>
+            </li>
+
+            {{-- Teachers sidebar --}}
+            <li class="menu-header">{{ __('Teachers') }}</li>
+            <li class="{{ isRoute('admin.teachers.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.teachers.create') }}"><i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Teacher') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.teachers.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.teachers.index') }}"><i class="fas fa-list"></i>
+                    <span>{{ __('List Teachers') }}</span>
+                </a>
+            </li>
+
             @if (checkAdminHasPermission('setting.view') ||
                     checkAdminHasPermission('basic.payment.view') ||
                     checkAdminHasPermission('payment.view') ||

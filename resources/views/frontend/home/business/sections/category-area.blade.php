@@ -13,7 +13,7 @@
             @foreach ($trendingCategories as $category)
                 <div class="col-lg-3 col-sm-6">
                     <div class="categories__item-three">
-                        <a href="{{ route('courses', ['main_category' => $category->slug]) }}">
+                        <a href="#">
                             <div class="icon">
                                 <img src="{{ asset($category->icon) }}" alt="">
                             </div>

@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AssistantsController;
 use App\Http\Controllers\Admin\ClassesController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationalCenterController;
 use App\Http\Controllers\Admin\RoomScheduleController;
 use App\Http\Controllers\Admin\WorkspaceController;
+use App\Http\Controllers\Admin\ClassEnrollmentsController;
+use App\Http\Controllers\Admin\RoomBookingsController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Frontend\AboutPageController;
 use App\Http\Controllers\Frontend\BecomeInstructorController;
@@ -98,11 +101,21 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:admin'],
     Route::resource('room_schedules', RoomScheduleController::class)->names('room_schedules');
     // Classes Controller
     Route::resource('classes', ClassesController::class)->names('classes');
-   
+
     // Teachers Controller
        Route::resource('teachers', \App\Http\Controllers\Admin\TeachersController::class)->names('teachers');
     Route::post('teachers/{teacher_id}/degrees', [\App\Http\Controllers\Admin\TeachersController::class, 'storeDegree'])->name('teachers.degrees.store');
     Route::post('teachers/{teacher_id}/certifications', [\App\Http\Controllers\Admin\TeachersController::class, 'storeCertification'])->name('teachers.certifications.store');
+
+    // Class Enrollments Controller
+     Route::resource('class-enrollments', ClassEnrollmentsController::class)->names('class-enrollments');
+
+    //  Room Booking Controller 
+    Route::resource('room-bookings', RoomBookingsController::class)->names('room-bookings');
+
+    // Assistants Controller 
+     Route::resource('assistants', AssistantsController::class)->names('assistants');
+
 
 });
     Route::group(['prefix' => 'frontend-filemanager', 'middleware' => ['web']], function () {

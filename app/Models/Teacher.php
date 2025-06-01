@@ -52,4 +52,12 @@ class Teacher extends Model
     {
         return $this->hasMany(TeacherCertification::class, 'teacher_id');
     }
+    public function bookings()
+    {
+        return $this->hasMany(RoomBooking::class, 'teacher_id');
+    }
+
+
+
+
 }

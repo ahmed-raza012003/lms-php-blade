@@ -20,11 +20,11 @@ return new class extends Migration
             $table->dateTime('end_time');
             $table->boolean('is_recurring')->default(false);
             $table->string('recurrence_pattern')->nullable();
-            $table->timestamps();
             $table->enum('status', ['pending', 'approved', 'cancelled'])->default('pending');
+            $table->timestamps();
 
             $table->foreign('workspace_id')->references('workspace_id')->on('workspaces')->onDelete('cascade');
-            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+            $table->foreign('teacher_id')->references('teacher_id')->on('teachers')->onDelete('cascade');
             $table->foreign('room_id')->references('room_id')->on('rooms')->onDelete('cascade');
         });
     }

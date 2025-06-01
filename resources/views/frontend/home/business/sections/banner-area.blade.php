@@ -11,7 +11,7 @@
                                     <h2 class="title">{!! clean(processText($slider?->content?->title_one)) !!}</h2>
                                     <p>{!! clean(processText($slider?->content?->sub_title_one)) !!}</p>
                                     <div class="slider__search">
-                                        <form action="{{ route('courses') }}" class="slider__search-form">
+                                        <form action="#" class="slider__search-form">
                                             <input type="text" name="search"
                                                 placeholder="{{ __('Search here') }} . . .">
                                             <button type="submit">{{ __('Explore Spaces') }}</button>
@@ -33,7 +33,7 @@
                                     <h2 class="title">{!! clean(processText($slider?->content?->title_two)) !!}</h2>
                                     <p>{!! clean(processText($slider?->content?->sub_title_two)) !!}</p>
                                     <div class="slider__search">
-                                        <form action="{{ route('courses') }}" class="slider__search-form">
+                                        <form action="#" class="slider__search-form">
                                             <input type="text" name="search"
                                                 placeholder="{{ __('Search here') }} . . .">
                                             <button type="submit">{{ __('Explore Spaces') }}</button>
@@ -55,7 +55,7 @@
                                     <h2 class="title">{!! clean(processText($slider?->content?->title_three)) !!}</h2>
                                     <p>{!! clean(processText($slider?->content?->sub_title_three)) !!}</p>
                                     <div class="slider__search">
-                                        <form action="{{ route('courses') }}" class="slider__search-form">
+                                        <form action="#" class="slider__search-form">
                                             <input type="text" name="search"
                                                 placeholder="{{ __('Search here') }} . . .">
                                             <button type="submit">{{ __('Explore Spaces') }}</button>

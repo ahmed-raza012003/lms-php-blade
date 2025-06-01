@@ -19,6 +19,138 @@
                 </li>
             @endadminCan
 
+
+
+            <!-- Replace your Educational Center code with this -->
+            <li class="menu-header">{{ __('Educational Center') }}</li>
+            <li class="{{ isRoute('admin.educenter.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.educenter.create') }}"><i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create EduCenter') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.educenter.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.educenter.index') }}"><i class="fas fa-list"></i>
+                    <span>{{ __('List EduCenter') }}</span>
+                </a>
+            </li>
+
+            {{-- Workspace sidebar -- --}}
+            <li class="menu-header">{{ __('Workspaces') }}</li>
+            <li class="{{ isRoute('admin.workspace.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.workspace.create') }}"><i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Workspace') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.workspace.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.workspace.index') }}"><i class="fas fa-list"></i>
+                    <span>{{ __('List Workspaces') }}</span>
+                </a>
+            </li>
+
+            {{-- Rooms sidebar --}}
+            <li class="menu-header">{{ __('Rooms') }}</li>
+            <li class="{{ isRoute('admin.rooms.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.rooms.create') }}"><i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Room') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.rooms.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.rooms.index') }}"><i class="fas fa-list"></i>
+                    <span>{{ __('List Rooms') }}</span>
+                </a>
+            </li>
+
+            {{-- Room Schedules sidebar --}}
+            <li class="menu-header">{{ __('Room Schedules') }}</li>
+            <li class="{{ isRoute('admin.room_schedules.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.room_schedules.create') }}"><i
+                        class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Schedule') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.room_schedules.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.room_schedules.index') }}"><i class="fas fa-list"></i>
+                    <span>{{ __('List Schedules') }}</span>
+                </a>
+            </li>
+
+            {{-- Classes sidebar --}}
+            <li class="menu-header">{{ __('Classes') }}</li>
+            <li class="{{ isRoute('admin.classes.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.classes.create') }}"><i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Class') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.classes.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.classes.index') }}"><i class="fas fa-list"></i>
+                    <span>{{ __('List Classes') }}</span>
+                </a>
+            </li>
+
+            {{-- Teachers sidebar --}}
+            <li class="menu-header">{{ __('Teachers') }}</li>
+            <li class="{{ isRoute('admin.teachers.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.teachers.create') }}"><i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Teacher') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.teachers.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.teachers.index') }}"><i class="fas fa-list"></i>
+                    <span>{{ __('List Teachers') }}</span>
+                </a>
+            </li>
+
+
+            {{-- Class Enrollments sidebar --}}
+            <li class="menu-header">{{ __('Class Enrollments') }}</li>
+            <li class="{{ isRoute('admin.class-enrollments.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.class-enrollments.create') }}">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Enrollment') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.class-enrollments.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.class-enrollments.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>{{ __('List Enrollments') }}</span>
+                </a>
+            </li>
+
+            {{-- Room Bookings sidebar --}}
+            <li class="menu-header">{{ __('Room Bookings') }}</li>
+            <li class="{{ isRoute('admin.room-bookings.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.room-bookings.create') }}">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Booking') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.room-bookings.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.room-bookings.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>{{ __('List Bookings') }}</span>
+                </a>
+            </li>
+
+
+            {{-- Assistants sidebar --}}
+            <li class="menu-header">{{ __('Assistants') }}</li>
+            <li class="{{ isRoute('admin.assistants.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.assistants.create') }}">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Assistant') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.assistants.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.assistants.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>{{ __('List Assistants') }}</span>
+                </a>
+            </li>
+
+
+
+
+
             @if (checkAdminHasPermission('course.management') ||
                     checkAdminHasPermission('course.certificate.management') ||
                     checkAdminHasPermission('badge.management') ||
@@ -125,84 +257,7 @@
                 @endif
             @endif
 
-            <!-- Replace your Educational Center code with this -->
-            <li class="menu-header">{{ __('Educational Center') }}</li>
-            <li class="{{ isRoute('admin.educenter.create', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.educenter.create') }}"><i class="fas fa-plus-circle"></i>
-                    <span>{{ __('Create EduCenter') }}</span>
-                </a>
-            </li>
-            <li class="{{ isRoute('admin.educenter.index', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.educenter.index') }}"><i class="fas fa-list"></i>
-                    <span>{{ __('List EduCenter') }}</span>
-                </a>
-            </li>
 
-            {{-- Workspace sidebar -- --}}
-            <li class="menu-header">{{ __('Workspaces') }}</li>
-            <li class="{{ isRoute('admin.workspace.create', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.workspace.create') }}"><i class="fas fa-plus-circle"></i>
-                    <span>{{ __('Create Workspace') }}</span>
-                </a>
-            </li>
-            <li class="{{ isRoute('admin.workspace.index', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.workspace.index') }}"><i class="fas fa-list"></i>
-                    <span>{{ __('List Workspaces') }}</span>
-                </a>
-            </li>
-
-            {{-- Rooms sidebar --}}
-            <li class="menu-header">{{ __('Rooms') }}</li>
-            <li class="{{ isRoute('admin.rooms.create', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.rooms.create') }}"><i class="fas fa-plus-circle"></i>
-                    <span>{{ __('Create Room') }}</span>
-                </a>
-            </li>
-            <li class="{{ isRoute('admin.rooms.index', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.rooms.index') }}"><i class="fas fa-list"></i>
-                    <span>{{ __('List Rooms') }}</span>
-                </a>
-            </li>
-
-            {{-- Room Schedules sidebar --}}
-            <li class="menu-header">{{ __('Room Schedules') }}</li>
-            <li class="{{ isRoute('admin.room_schedules.create', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.room_schedules.create') }}"><i
-                        class="fas fa-plus-circle"></i>
-                    <span>{{ __('Create Schedule') }}</span>
-                </a>
-            </li>
-            <li class="{{ isRoute('admin.room_schedules.index', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.room_schedules.index') }}"><i class="fas fa-list"></i>
-                    <span>{{ __('List Schedules') }}</span>
-                </a>
-            </li>
-
-            {{-- Classes sidebar --}}
-            <li class="menu-header">{{ __('Classes') }}</li>
-            <li class="{{ isRoute('admin.classes.create', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.classes.create') }}"><i class="fas fa-plus-circle"></i>
-                    <span>{{ __('Create Class') }}</span>
-                </a>
-            </li>
-            <li class="{{ isRoute('admin.classes.index', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.classes.index') }}"><i class="fas fa-list"></i>
-                    <span>{{ __('List Classes') }}</span>
-                </a>
-            </li>
-
-            {{-- Teachers sidebar --}}
-            <li class="menu-header">{{ __('Teachers') }}</li>
-            <li class="{{ isRoute('admin.teachers.create', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.teachers.create') }}"><i class="fas fa-plus-circle"></i>
-                    <span>{{ __('Create Teacher') }}</span>
-                </a>
-            </li>
-            <li class="{{ isRoute('admin.teachers.index', 'active') }}">
-                <a class="nav-link" href="{{ route('admin.teachers.index') }}"><i class="fas fa-list"></i>
-                    <span>{{ __('List Teachers') }}</span>
-                </a>
-            </li>
 
             @if (checkAdminHasPermission('setting.view') ||
                     checkAdminHasPermission('basic.payment.view') ||

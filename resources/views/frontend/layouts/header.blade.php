@@ -142,14 +142,14 @@
                                                 fill="currentcolor" />
                                         </svg>
 
-                                        <select class="form-select select_js w_150px"
+                                        {{-- <select class="form-select select_js w_150px"
                                             aria-label="Default select example" name="main_category">
                                             <option selected disabled>{{ __('Categories') }}</option>
                                             @foreach ($categories as $category)
                                                 <option @selected(request('main_category') == $category->slug) value="{{ $category->slug }}">
                                                     {{ $category?->name }}</option>
                                             @endforeach
-                                        </select>
+                                        </select> --}}
                                     </div>
                                     <div class="input-grp">
                                         <input type="text" placeholder="{{ __('Search For Course') }} . . ."
@@ -160,13 +160,13 @@
                             </div>
                             <div class="tgmenu__action">
                                 <ul class="list-wrap">
-                                    <li class="mini-cart-icon">
+                                    {{-- <li class="mini-cart-icon">
                                         <a href="{{ route('cart') }}" class="cart-count">
                                             <img src="{{ asset('frontend/img/icons/cart.svg') }}" class="injectable"
                                                 alt="img">
                                             <span class="mini-cart-count">{{ Cart::content()->count() }}</span>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="mini-cart-icon user_icon">
                                         <a href="javascript:;" class="cart-count">
                                             <img src="{{ asset('frontend/img/icons/menu_user.svg') }}"

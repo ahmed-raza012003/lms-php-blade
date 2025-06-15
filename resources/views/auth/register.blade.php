@@ -34,14 +34,14 @@
                                     <div class="form-grp">
                                         <label for="fast-name">{{ __('Full Name') }}</label>
                                         <input type="text" id="fast-name" placeholder="{{ __('full name') }}"
-                                            name="name">
+                                            name="name" value="{{ old('name') }}">
                                         <x-frontend.validation-error name="name" />
                                     </div>
                                 </div>
                             </div>
                             <div class="form-grp">
                                 <label for="email">{{ __('Email') }}</label>
-                                <input type="email" id="email" placeholder="{{ __('email') }}" name="email">
+                                <input type="email" id="email" placeholder="{{ __('email') }}" name="email" value="{{ old('email') }}">
                                 <x-frontend.validation-error name="email" />
                             </div>
                             <div class="form-grp">
@@ -54,6 +54,16 @@
                                 <input type="password" id="confirm-password" placeholder="{{ __('Confirm Password') }}"
                                     name="password_confirmation">
                                 <x-frontend.validation-error name="password_confirmation" />
+                            </div>
+                            <div class="form-grp">
+                                <label for="role">{{ __('Role') }}</label>
+                                <select name="role" id="role" class="form-control" required>
+                                    <option value="">{{ __('Select Role') }}</option>
+                                    <option value="student" {{ old('role') == 'student' ? 'selected' : '' }}>{{ __('Student') }}</option>
+                                    <option value="parent" {{ old('role') == 'parent' ? 'selected' : '' }}>{{ __('Parent') }}</option>
+                                    <option value="teacher" {{ old('role') == 'teacher' ? 'selected' : '' }}>{{ __('Teacher') }}</option>
+                                </select>
+                                <x-frontend.validation-error name="role" />
                             </div>
 
                             <!-- g-recaptcha -->

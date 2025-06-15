@@ -18,7 +18,7 @@ class RegisteredUserController extends Controller
 {
     use GetGlobalInformationTrait;
 
-    public function create(): View
+   public function create(): View
     {
         return view('auth.register');
     }
@@ -29,21 +29,24 @@ class RegisteredUserController extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class.',email', 'unique:admins,email'],
             'password' => ['required', 'confirmed', 'min:4', 'max:100'],
+            'role' => ['required', 'in:student,parent,teacher'],
             'g-recaptcha-response' => $setting->recaptcha_status == 'active' ? ['required', new CustomRecaptcha()] : '',
         ], [
             'name.required' => __('Name is required'),
             'email.required' => __('Email is required'),
-            'email.unique' => __('Email already exist'),
+            'email.unique' => __('Email already exists'),
             'password.required' => __('Password is required'),
             'password.confirmed' => __('Confirm password does not match'),
             'password.min' => __('You have to provide minimum 4 character password'),
-            'g-recaptcha-response.required' => __('Please complete the recaptcha to submit the form'),
+            'role.required' => __('Role is required'),
+            'role.in' => __('Invalid role selected'),
+            'g-recaptcha-response.required' => __('Please complete the reCAPTCHA to submit the form'),
         ]);
 
         $user = User::create([
-            'role' => 'student',
+            'role' => $request->role,
             'name' => $request->name,
             'email' => $request->email,
             'status' => 'active',
@@ -64,11 +67,9 @@ class RegisteredUserController extends Controller
 
         (new MailSenderService)->sendVerifyMailToUserFromTrait('single_user', $user);
 
-        $notification = __('A varification link has been send to your mail, please verify and enjoy our service');
+        $notification = __('A verification link has been sent to your email, please verify and enjoy our service');
         $notification = ['messege' => $notification, 'alert-type' => 'success'];
-
-        return redirect()->back()->with($notification);
-
+     return redirect()->back()->with($notification);
     }
 
     public function custom_user_verification($token)

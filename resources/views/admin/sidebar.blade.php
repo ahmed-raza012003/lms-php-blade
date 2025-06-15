@@ -21,6 +21,23 @@
 
 
 
+            {{-- Users sidebar --}}
+            <li class="menu-header">{{ __('Users') }}</li>
+            <li class="{{ isRoute('admin.users.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.users.create') }}">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create User') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.users.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.users.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>{{ __('List Users') }}</span>
+                </a>
+            </li>
+
+
+
             <!-- Replace your Educational Center code with this -->
             <li class="menu-header">{{ __('Educational Center') }}</li>
             <li class="{{ isRoute('admin.educenter.create', 'active') }}">
@@ -144,6 +161,53 @@
                 <a class="nav-link" href="{{ route('admin.assistants.index') }}">
                     <i class="fas fa-list"></i>
                     <span>{{ __('List Assistants') }}</span>
+                </a>
+            </li>
+
+
+            {{-- {{-- Parents menu --} --}}
+            <li class="menu-header">{{ __('Parents') }}</li>
+            <li class="{{ isRoute('admin.parents.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.parents.create') }}">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Parent') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.parents.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.parents.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>{{ __('List Parents') }}</span>
+                </a>
+            </li>
+
+
+            {{-- Students sidebar --}}
+            <li class="menu-header">{{ __('Students') }}</li>
+            <li class="{{ isRoute('admin.students.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.students.create') }}">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Student') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.students.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.students.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>{{ __('List Students') }}</span>
+                </a>
+            </li>
+
+            {{-- Attendance sidebar --}}
+            <li class="menu-header">{{ __('Attendance') }}</li>
+            <li class="{{ isRoute('admin.attendance.create', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.attendance.create') }}">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>{{ __('Create Attendance') }}</span>
+                </a>
+            </li>
+            <li class="{{ isRoute('admin.attendance.index', 'active') }}">
+                <a class="nav-link" href="{{ route('admin.attendance.index') }}">
+                    <i class="fas fa-list"></i>
+                    <span>{{ __('List Attendance') }}</span>
                 </a>
             </li>
 

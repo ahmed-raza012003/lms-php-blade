@@ -83,6 +83,22 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Workspace::class, 'workspace_user', 'user_id', 'workspace_id');
     }
+    public function parents()
+    {
+        return $this->hasOne(Parent::class, 'user_id');
+    }
+   
+
+
+
+
+
+
+
+
+
+
+
     public function contactUsersWithUnseenMessages()
     {
         $contactUsers = User::whereIn('id', $this->messagesSent()->pluck('receiver_id'))

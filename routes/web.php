@@ -4,10 +4,14 @@ use App\Http\Controllers\Admin\AssistantsController;
 use App\Http\Controllers\Admin\ClassesController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EducationalCenterController;
+use App\Http\Controllers\Admin\ParentsController;
 use App\Http\Controllers\Admin\RoomScheduleController;
+use App\Http\Controllers\Admin\StudentsController;
 use App\Http\Controllers\Admin\WorkspaceController;
 use App\Http\Controllers\Admin\ClassEnrollmentsController;
 use App\Http\Controllers\Admin\RoomBookingsController;
+use App\Http\Controllers\Admin\AttendanceController;
+use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Frontend\AboutPageController;
 use App\Http\Controllers\Frontend\BecomeInstructorController;
@@ -89,6 +93,7 @@ Route::group(['middleware' => 'maintenance.mode'], function () {
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:admin'], 'as' => 'admin.'], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 
+
     // Educational Center Controller
     Route::resource('educenter', EducationalCenterController::class)->names('educenter');
     // Workspace Controller
@@ -116,8 +121,25 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:admin'],
     // Assistants Controller 
      Route::resource('assistants', AssistantsController::class)->names('assistants');
 
+    //  Parents Controller 
+     Route::resource('parents', ParentsController::class)->names('parents');
+
+    //  Students Controller 
+     Route::resource('students', StudentsController::class)->names('students');
+     Route::post('students/update-status', [StudentsController::class, 'updateStatus'])->name('students.update-status');
+
+    //  Attendence Controller 
+        Route::resource('attendance', AttendanceController::class)->names('attendance');
+
+        // UserAdminController 
+         Route::resource('users', UserAdminController::class)->names('users');
+
+
+
 
 });
+
+
     Route::group(['prefix' => 'frontend-filemanager', 'middleware' => ['web']], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });

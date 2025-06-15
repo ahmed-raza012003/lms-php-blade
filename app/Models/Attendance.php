@@ -33,11 +33,11 @@ class Attendance extends Model
 
     public function student()
     {
-        return $this->belongsTo(User::class, 'student_id');
+        return $this->belongsTo(Student::class, 'student_id');
     }
 
     public function markedBy()
     {
-        return $this->belongsTo(User::class, 'marked_by');
+        return $this->belongsTo(Teacher::class, 'marked_by', 'teacher_id');
     }
 }

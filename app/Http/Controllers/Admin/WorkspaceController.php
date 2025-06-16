@@ -17,6 +17,57 @@ class WorkspaceController extends Controller
         return view('admin.workspace.index', compact('workspaces'));
     }
 
+    public function searchWorkspaces(Request $request)
+    {
+        // Get the search term from the request, default to empty string if not provided
+        $searchTerm = $request->input('search', '');
+
+        // Log the search attempt
+        Log::info('Workspace search initiated', [
+            'search_term' => $searchTerm,
+            'user_id' => auth()->id() ?? 'guest',
+            'timestamp' => now()->toDateTimeString()
+        ]);
+
+        // Initialize the query
+        $query = Workspace::with('user');
+
+        // Apply search filter if search term is provided
+        if (!empty($searchTerm)) {
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('city', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('country', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('workspace_type', 'like', '%' . $searchTerm . '%');
+            });
+        }
+
+        // Get paginated results
+        $workspaces = $query->paginate(9);
+
+        // Log the number of results
+        Log::info('Workspace search results', [
+            'search_term' => $searchTerm,
+            'result_count' => $workspaces->count(),
+            'total_results' => $workspaces->total(),
+            'timestamp' => now()->toDateTimeString()
+        ]);
+
+        // If no results found and search term was provided, fetch all approved workspaces
+        if ($workspaces->isEmpty() && !empty($searchTerm)) {
+            Log::warning('No workspaces found for search term, returning all approved workspaces', [
+                'search_term' => $searchTerm,
+                'timestamp' => now()->toDateTimeString()
+            ]);
+            $workspaces = Workspace::with('user')->where('status', 'approved')->paginate(9);
+            $noResultsMessage = 'No workspaces found matching your search. Showing all approved workspaces instead.';
+        } else {
+            $noResultsMessage = null;
+        }
+
+        // Return the view with the workspaces data
+        return view('admin.workspace.search', compact('workspaces', 'noResultsMessage'));
+    }
     public function create()
     {
         $users = User::all();

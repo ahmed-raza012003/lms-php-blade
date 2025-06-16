@@ -19,7 +19,36 @@ class TeachersController extends Controller
         $teachers = Teacher::with(['user', 'degrees', 'certifications'])->paginate(10);
         return view('admin.teachers.index', compact('teachers'));
     }
+ public function searchTeachers(Request $request)
+    {
+        // Get the search term from the request, default to empty string if not provided
+        $searchTerm = $request->input('search', '');
 
+        // Initialize the query
+        $query = Teacher::with('user');
+
+        // Apply search filter if search term is provided
+        if (!empty($searchTerm)) {
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('first_name', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('last_name', 'like', '%' . $searchTerm . '%');
+            });
+        }
+
+        // Get paginated results, or all teachers if no results match
+        $teachers = $query->paginate(9);
+
+        // If no results found and search term was provided, fetch all teachers
+        if ($teachers->isEmpty() && !empty($searchTerm)) {
+            $teachers = Teacher::with('user')->paginate(9);
+            $noResultsMessage = 'No teachers found matching your search. Showing all teachers instead.';
+        } else {
+            $noResultsMessage = null;
+        }
+
+        // Return the view with the teachers data
+        return view('admin.teachers.search', compact('teachers', 'noResultsMessage'));
+    }
     public function create()
     {
         $users = User::all();

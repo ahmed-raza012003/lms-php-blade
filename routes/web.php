@@ -344,8 +344,11 @@ Route::get('/maintenance-mode', function () {
 
 
 
+use App\Http\Controllers\Admin\TeachersController;
 
+Route::get('/search_teachers', [TeachersController::class, 'searchTeachers'])->name('search_teachers');
 
+Route::get('/search_workspaces', [WorkspaceController::class, 'searchWorkspaces'])->name('search_workspaces');
 
 require __DIR__ . '/auth.php';
 
